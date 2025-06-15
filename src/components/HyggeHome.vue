@@ -4,9 +4,9 @@
       <!-- 左侧内容 -->
       <div class="flex-1 flex flex-col justify-center items-center gap-6">
         <div class="lang-switch flex gap-2 text-base font-semibold text-gray-700 dark:text-gray-200">
-          <span class="cursor-pointer hover:text-blue-600" onclick="setLanguage('zh')">中文</span>
-          <span class="cursor-pointer hover:text-blue-600" onclick="setLanguage('en')">EN</span>
-          <span class="cursor-pointer hover:text-blue-600" onclick="setLanguage('ja')">日本語</span>
+          <span class="cursor-pointer hover:text-blue-600" :class="currentLang==='zh' ? 'text-blue-600' : ''" @click="setLanguage('zh')">中文</span>
+          <span class="cursor-pointer hover:text-blue-600" :class="currentLang==='en' ? 'text-blue-600' : ''" @click="setLanguage('en')">EN</span>
+          <span class="cursor-pointer hover:text-blue-600" :class="currentLang==='ja' ? 'text-blue-600' : ''" @click="setLanguage('ja')">日本語</span>
         </div>
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="title">Hygge民泊</h1>
         <div class="w-full flex flex-col items-center">
@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 
 // 多语言字典
 const i18nDict = {
@@ -70,32 +70,19 @@ const i18nDict = {
 type Lang = keyof typeof i18nDict
 const keys = Object.keys(i18nDict.zh) as Array<keyof typeof i18nDict.zh>
 
+const currentLang = ref<Lang>('zh')
+
 function setLanguage(lang: Lang) {
+  currentLang.value = lang
   const dict = i18nDict[lang] || i18nDict['zh']
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n') as keyof typeof i18nDict.zh
     if (keys.includes(key)) el.textContent = dict[key]
   })
-  // 高亮当前语言按钮
-  document.querySelectorAll('.lang-switch span').forEach(span => {
-    if (span.textContent?.trim() === '中文' && lang === 'zh') span.classList.add('text-blue-600')
-    else if (span.textContent?.trim() === 'EN' && lang === 'en') span.classList.add('text-blue-600')
-    else if (span.textContent?.trim() === '日本語' && lang === 'ja') span.classList.add('text-blue-600')
-    else span.classList.remove('text-blue-600')
-  })
 }
 
 onMounted(() => {
   setLanguage('zh')
-  // 兼容 SSR 或热重载时按钮绑定
-  document.querySelectorAll('.lang-switch span').forEach(span => {
-    span.addEventListener('click', () => {
-      const txt = span.textContent?.trim()
-      if (txt === '中文') setLanguage('zh')
-      else if (txt === 'EN') setLanguage('en')
-      else if (txt === '日本語') setLanguage('ja')
-    })
-  })
 })
 </script>
 
