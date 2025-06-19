@@ -10,7 +10,7 @@
         </div>
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="title">Hygge民泊</h1>
         <div class="w-full flex flex-col items-center">
-          <a href="#/main" class="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition font-semibold text-lg" data-i18n="enter">进入 Enter</a>
+          <a href="#/details" class="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition font-semibold text-lg" data-i18n="enter">进入 Enter</a>
         </div>
         <div class="mt-6 text-gray-600 dark:text-gray-300 text-center text-sm">
           <span data-i18n="phone-label">运营商电话：</span><a href="tel:03-6705-5554" class="underline hover:text-blue-600">03—6705—5554</a><br />
