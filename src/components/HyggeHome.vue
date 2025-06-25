@@ -7,13 +7,16 @@
     </div>
     <div class="flex flex-col justify-center items-center w-full">
       <h1 class="text-5xl font-bold mb-8 text-center" style="color: #2563eb;">{{ dict[currentLang].welcome }}</h1>
-      <a href="#/details" class="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition font-semibold text-lg mt-4" data-i18n="enter">{{ dict[currentLang].enter }}</a>
+      <Button as="a" href="#/details" class="mt-4 px-8 py-3 bg-black text-white border-2 border-purple-600 rounded-lg shadow font-semibold text-lg hover:bg-gray-900 transition" data-i18n="enter">
+        {{ dict[currentLang].enter }}
+      </Button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Button } from '@/components/ui/button'
 
 const langs = ['zh', 'en', 'ja'] as const
 const langLabels: Record<typeof langs[number], string> = { zh: '中文', en: 'EN', ja: '日本語' }
