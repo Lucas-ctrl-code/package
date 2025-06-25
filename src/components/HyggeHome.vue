@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('https://github.com/Lucas-ctrl-code/imageimage/blob/main/%E5%9B%BE%E7%89%87_20250615150900.jpg?raw=true');">
+  <div class="min-h-screen flex flex-col items-center justify-center" style="background-image: url(https://github.com/Lucas-ctrl-code/package/blob/main/image-cache.jpg?raw=true); background-size: cover; background-repeat: no-repeat; background-position: center;">
     <div class="flex-1 flex flex-col justify-center items-center w-full">
-      <h1 class="text-5xl font-bold text-gray-900 dark:text-white mb-8 text-center">Welcome</h1>
+      <h1 class="text-5xl font-bold mb-8 text-center" style="color: #2563eb;">Welcome</h1>
       <a href="#/details" class="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition font-semibold text-lg" data-i18n="enter">进入 Enter</a>
     </div>
   </div>
