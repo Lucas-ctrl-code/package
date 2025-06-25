@@ -98,6 +98,8 @@ function setLang(lang: Lang) { currentLang.value = lang }
   margin: 0 auto;
   padding: 2rem;
   position: relative;
+  background: rgba(15, 68, 6, 0.5); /* 深翠绿色，透明度0% */
+  border-radius: 16px;
 }
 .lang-switch-ui {
   position: absolute;
